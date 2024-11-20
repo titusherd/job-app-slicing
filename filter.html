@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .jobs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .nav-button.active {
+            color: #e86f52;
+            position: relative;
+        }
+
+        .nav-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #e86f52;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .job-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-card.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .company {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-logo {
+            width: 24px;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 50%;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .location-tag {
+            background: #ffe4e4;
+        }
+
+        .location-tag.JAKARTA { background: #ffe4e4; }
+        .location-tag.BRAZIL { background: #e4ffe4; }
+        .location-tag.SINGAPORE { background: #e4e4ff; }
+        .location-tag.SHENZHEN { background: #fff4e4; }
+        .location-tag.SOLO { background: #ffe4ff; }
+
+        .type-tag {
+            background: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="section-title">Latest job vacancies</h1>
+    <p class="section-description">Search and find your dream job easier than ever. Just browse a job and apply and be part of Sea Labs Indonesia</p>
+
+    <div class="jobs-nav">
+        <button class="nav-button active" data-type="latest">LATEST JOBS</button>
+        <button class="nav-button" data-type="popular">POPULAR JOBS</button>
+        <button class="nav-button" data-type="closed">CLOSED JOBS</button>
+    </div>
+
+    <div class="job-grid" id="jobGrid"></div>
+</div>
+
+<script>
+    const jobData = [
+        {
+            id: 1,
+            title: "Software Engineer",
+            company: "Shopee",
+            location: "JAKARTA",
+            type: "FULL-TIME",
+            status: "active"
+        },
+        // ... rest of the jobs data
+    ];
+
+    function createJobCard(job) {
+        const card = document.createElement('a');
+        card.href = job.id === 1 ? 'job-details.html' : '#';
+        card.className = `job-card ${job.status === 'closed' ? 'disabled' : ''}`;
+
+        card.innerHTML = `
+                <h3 class="job-title">${job.title}</h3>
+                <div class="company">
+                    <div class="company-logo"></div>
+                    <span>${job.company}</span>
+                </div>
+                <div class="tags">
+                    <span class="tag location-tag ${job.location}">${job.location}</span>
+                    <span class="tag type-tag">${job.type}</span>
+                </div>
+            `;
+
+        return card;
+    }
+
+    function displayJobs(type) {
+        const grid = document.getElementById('jobGrid');
+        grid.innerHTML = '';
+
+        let filteredJobs;
+        switch(type) {
+            case 'latest':
+                filteredJobs = jobData.filter(job => job.status === 'active');
+                break;
+            case 'popular':
+                filteredJobs = jobData.filter(job => job.status === 'active')
+                    .sort((a, b) => Math.random() - 0.5); // Simulating popular sorting
+                break;
+            case 'closed':
+                filteredJobs = jobData.filter(job => job.status === 'closed');
+                break;
+            default:
+                filteredJobs = jobData;
+        }
+
+        filteredJobs.forEach(job => {
+            grid.appendChild(createJobCard(job));
+        });
+    }
+
+    // Setup navigation
+    document.querySelectorAll('.nav-button').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            displayJobs(button.dataset.type);
+        });
+    });
+
+    // Initial display
+    displayJobs('latest');
+</script>
+</body>
+</html>

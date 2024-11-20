@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.promo-bar span{
+.promo-bar span {
     text-decoration: underline;
 }
 
@@ -23,11 +23,11 @@
     color: white;
 }
 
-header{
+header {
     margin: 0 8.5rem
 }
 
-.nav-container{
+.nav-container {
     padding: 1.25rem 0;
     display: flex;
     flex-direction: row;
@@ -35,16 +35,16 @@ header{
     align-items: center;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     gap: 3.729rem;
 }
 
-.logo{
+.logo {
     width: 12rem;
 }
 
-.primary-btn{
+.primary-btn {
     background-color: var(--color-primary);
     padding: 0.75rem 1.5rem;
     gap: 12px;
@@ -52,18 +52,18 @@ header{
     color: white;
 }
 
-main{
+main {
     margin: 0 8.5rem
 }
 
-.hero{
+.hero {
     display: none;
     margin: 0 8.5rem;
     /*display: flex;*/
     flex-direction: row;
 }
 
-.hero-content{
+.hero-content {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -71,11 +71,11 @@ main{
     border: 1px solid var(--color-primary);
     /*align-items: center;*/
     justify-content: center;
-    padding-right: 5.063rem ;
+    padding-right: 5.063rem;
     /*padding: 6.938rem 6.938rem 6.938rem 8.5rem;*/
 }
 
-.hero-image{
+.hero-image {
     border: 1px solid var(--color-primary);
     width: 100%;
     display: flex;
@@ -84,12 +84,12 @@ main{
     align-items: center;
 }
 
-.hero-image img{
+.hero-image img {
     width: 22.438rem;
     height: 21.813rem;
 }
 
-.tag{
+.tag {
     border: 1px solid black;
     padding: 0.13em 0.6em;
     max-width: max-content;
@@ -97,7 +97,7 @@ main{
     font-size: 0.875rem;
 }
 
-.hero-content .tagline{
+.hero-content .tagline {
     font-size: 3.5rem;
 }
 
@@ -115,13 +115,13 @@ main{
     font-size: 0.875rem;
 }
 
-.email-subscription button{
+.email-subscription button {
     width: max-content;
     border-radius: 8px;
     padding: 0.563em 0.813em;
 }
 
-.hiring-now{
+.hiring-now {
     border: 1px solid var(--color-primary);
     display: flex;
     flex-direction: column;
@@ -131,7 +131,7 @@ main{
     background-color: aliceblue;
 }
 
-.hiring-now-content{
+.hiring-now-content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -167,11 +167,11 @@ main{
 
 .job-list {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
 }
 
-.job-list img{
+.job-list img {
     width: 0.75rem;
 }
 
@@ -190,13 +190,13 @@ main{
     scale: 1.1;
 }
 
-.job-card .company{
+.job-card .company {
     display: flex;
     gap: 0.5em;
     align-items: center;
 }
 
-.company-image-container{
+.company-image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,11 +207,11 @@ main{
     height: 1.625em;
 }
 
-.company img{
+.company img {
     width: 0.75em;
 }
 
-.company-tag{
+.company-tag {
     display: flex;
     gap: 0.5em;
     font-size: 0.625rem;
@@ -230,12 +230,12 @@ main{
 }
 
 
-main{
+.detail-main {
     margin: 5.438rem 8.5rem;
     display: flex;
 }
 
-.job{
+.job {
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -244,27 +244,27 @@ main{
     line-height: 1.5em;
 }
 
-.job h1{
+.job h1 {
     font-size: 2rem;
 }
 
-.job ul{
+.job ul {
     list-style-type: disc;
 }
 
-.job-container{
+.job-container {
     display: flex;
     flex-direction: column;
     gap: 1.625rem;
 }
 
-.job-description{
+.job-description {
     display: flex;
     flex-direction: column;
     gap: 1.063rem;
 }
 
-.job-requirements{
+.job-requirements {
     display: flex;
     flex-direction: column;
     gap: 1.063rem;
@@ -302,13 +302,13 @@ main{
     transition: border-color 0.2s;
 }
 
-.form-group input[type="file"]{
+.form-group input[type="file"] {
     display: none;
     border: 1px solid var(--color-primary);
     background-color: var(--color-primary);
 }
 
-.form-group .file-upload{
+.form-group .file-upload {
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
     width: max-content;
@@ -317,11 +317,11 @@ main{
     cursor: pointer;
 }
 
-.file-upload{
+.file-upload {
 
 }
 
-.submitBtn {
+.submit-btn {
     width: 100%;
     padding: 1rem;
     background-color: var(--color-primary);
@@ -332,10 +332,80 @@ main{
     cursor: pointer;
 }
 
-.submitBtn:disabled {
+.submit-btn:disabled {
     background: #E6E6E6;
     cursor: not-allowed;
 }
 
 
+/* Status Tracker */
+.status-tracker {
+    margin-top: 2rem;
+}
 
+.status-line {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.status-point {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.point {
+    width: 12px;
+    height: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.status-text {
+    margin-left: 1.5rem;
+    color: #666;
+}
+
+.status-point.active .point {
+    background: #E97451;
+}
+
+.status-point.active .status-text {
+    color: #E97451;
+}
+
+.status-line::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ddd;
+    z-index: -1;
+}
+
+.status-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: #E97451;
+    color: white;
+    cursor: pointer;
+}
+
+.action-btn:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
